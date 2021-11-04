@@ -1,13 +1,14 @@
 import "./App.css";
-// import { Route } from "react-router-dom"
-// import Normal from "./components/Normal";
-import Hard from "./components/Hard";
+// import HardLevel from "./component/HardLevel";
+// import MedLevel from "./component/MedLevel";
+import EasyLevel from "./component/EasyLevel";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Normal /> */}
-      <Hard />
+    <div>
+      {/* <HardLevel /> */}
+      {/* <MedLevel /> */}
+      <EasyLevel />
     </div>
   );
 }
