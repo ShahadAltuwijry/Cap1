@@ -150,7 +150,7 @@
   transition: all 0.7s ease-in-out;
 }
 
-.card:hover {
+.cardMed:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
