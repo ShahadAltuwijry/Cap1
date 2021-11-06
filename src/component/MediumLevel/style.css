@@ -159,12 +159,12 @@
 
 .cardContinerHard {
   /*all cards div hard*/
-  width: 90%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-left: 45px;
+  margin-left: 120px;
 }
 
 .cardHard {

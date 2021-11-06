@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 
-export default function HardLevel() {
+export default function EasyLevel() {
   //main array of orignal cards
   const [orginalCard, setOrginalCard] = useState([
     {
       id: 1,
-      img: require(`./../assests/front1.JPEG`).default,
+      img: require(`./../newFronts/image0.jpg`).default,
       count: 0,
       isFinish: false,
     },
     {
       id: 2,
-      img: require(`./../assests/front2.JPEG`).default,
+      img: require(`./../newFronts/image1.jpg`).default,
       count: 0,
       isFinish: false,
     },
     {
       id: 3,
-      img: require(`./../assests/front3.JPEG`).default,
+      img: require(`./../newFronts/image2.jpg`).default,
       count: 0,
       isFinish: false,
     },
@@ -29,39 +29,39 @@ export default function HardLevel() {
     {
       id: 2,
       gameId: 1,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front1.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image0.jpg`).default,
     },
     {
       id: 3,
       gameId: 2,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front2.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image1.jpg`).default,
     },
     {
       id: 4,
       gameId: 2,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front2.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image1.jpg`).default,
     },
     {
       id: 5,
       gameId: 3,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front3.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image2.jpg`).default,
     },
     {
       id: 6,
       gameId: 3,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front3.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image2.jpg`).default,
     },
 
     {
       id: 1,
       gameId: 1,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front1.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image0.jpg`).default,
     },
   ]);
 
@@ -70,24 +70,25 @@ export default function HardLevel() {
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms)); //to delay cards flip if wrong match
 
-  const restartGame = () => { //to restart game on clicking restart button
+  const restartGame = () => {
+    //to restart game on clicking restart button
     setOrginalCard([
       //the useState function use of array orignalcard
       {
         id: 1,
-        img: require(`./../assests/front1.JPEG`).default,
+        img: require(`./../newFronts/image0.jpg`).default,
         count: 0,
         isFinish: false,
       },
       {
         id: 2,
-        img: require(`./../assests/front2.JPEG`).default,
+        img: require(`./../newFronts/image1.jpg`).default,
         count: 0,
         isFinish: false,
       },
       {
         id: 3,
-        img: require(`./../assests/front3.JPEG`).default,
+        img: require(`./../newFronts/image2.jpg`).default,
         count: 0,
         isFinish: false,
       },
@@ -135,44 +136,45 @@ export default function HardLevel() {
       {
         id: 2,
         gameId: 1,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front1.JPEG`).default,
+        back: require(`./../newFronts/backCard.jpg`).default,
+        front: require(`./../newFronts/image0.jpg`).default,
       },
       {
         id: 3,
         gameId: 2,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front2.JPEG`).default,
+        back: require(`./../newFronts/backCard.jpg`).default,
+        front: require(`./../newFronts/image1.jpg`).default,
       },
       {
         id: 4,
         gameId: 2,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front2.JPEG`).default,
+        back: require(`./../newFronts/backCard.jpg`).default,
+        front: require(`./../newFronts/image1.jpg`).default,
       },
       {
         id: 5,
         gameId: 3,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front3.JPEG`).default,
+        back: require(`./../newFronts/backCard.jpg`).default,
+        front: require(`./../newFronts/image2.jpg`).default,
       },
       {
         id: 6,
         gameId: 3,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front3.JPEG`).default,
+        back: require(`./../newFronts/backCard.jpg`).default,
+        front: require(`./../newFronts/image2.jpg`).default,
       },
 
       {
         id: 1,
         gameId: 1,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front1.JPEG`).default,
+        back: require(`./../newFronts/backCard.jpg`).default,
+        front: require(`./../newFronts/image0.jpg`).default,
       },
     ]);
 
-    const newGame = game.map((item, i) => { //when starting a new game all cards will flip back and randomize
-      item.back = require(`./../assests/cardback.jpg`).default;
+    const newGame = game.map((item, i) => {
+      //when starting a new game all cards will flip back and randomize
+      item.back = require(`./../newFronts/backCard.jpg`).default;
       return item;
     });
     setGame(newGame); //restarts the game with the newGame array
@@ -181,27 +183,29 @@ export default function HardLevel() {
     changeCardPlace(); //randomize the card places
   };
 
-  const changeCardPlace = () => { //to change cards place every time it restarts
+  const changeCardPlace = () => {
+    //to change cards place every time it restarts
     //1- genrate random numbers from 0 to 5 for the easy level
     const numbers = [0, 1, 2, 3, 4, 5];
-    numbers.sort(() => Math.random() - 0.5);
+    numbers.sort(() => Math.random() - 0.5); //3 ,2,5,0,1,4
 
     //change cards place
     let newGame = [];
     for (let i = 0; i < numbers.length; i++) {
-      newGame.push(game[numbers[i]]); 
+      newGame.push(game[numbers[i]]); //game []  //numbers[0] =3
     }
     //console.log(newGame);
     setGame(newGame);
   };
 
   useEffect(() => {
-    changeCardPlace(); 
-  }, []); //to do the change card place with every refresh of page 
+    changeCardPlace();
+  }, []); //to do the change card place with every refresh of page
 
-  const check = async (id) => { //to check match 
+  const check = async (id) => {
+    //to check match
     // id = i+1 ind
-    let backCard = require(`./../assests/cardback.jpg`).default;
+    let backCard = require(`./../newFronts/backCard.jpg`).default;
     let getIndexInOrginalCard = game[id - 1].gameId - 1;
     let check = orginalCard[getIndexInOrginalCard].isFinish;
 
@@ -223,6 +227,7 @@ export default function HardLevel() {
           return game[id - 1].front === item.img;
         });
 
+        //3-Change face image
         const newGame = game.map((item, i) => {
           if (i === id - 1) {
             item.back = item.front;
@@ -231,9 +236,9 @@ export default function HardLevel() {
         });
         setGame(newGame);
 
-        await delay(1000);
+        await delay(1500);
 
-        //3- cheack if is equals or not
+        //3- check if is equals or not
         //begin
         if (countCard.count === 2) {
           //1- change image to finishCard
@@ -274,7 +279,7 @@ export default function HardLevel() {
           });
 
           setOrginalCard(newOrginalCard2);
-        } else if (opnedCards[0] === 2) opnedCards[0] = 0;
+        } // else if (opnedCards[0] === 2) opnedCards[0] = 0;
         setOpnedCards(opnedCards);
         //finish check from filpNum
 
