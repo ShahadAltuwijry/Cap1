@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./../HardLevel/style.css";
+import { useNavigate } from "react-router-dom";
 
 export default function HardLevel() {
+  const navigate = useNavigate();
+
   const [orginalCard, setOrginalCard] = useState([
     {
       id: 1,
@@ -174,201 +177,22 @@ export default function HardLevel() {
 
   const [finishedCardNum, setFinishedCardNum] = useState(0);
   const [opnedCards, setOpnedCards] = useState([0]); //only works with array
+  const [timer, setTimer] = useState(0);
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-  const restartGame = () => {
-    setOrginalCard([
-      {
-        id: 1,
-        img: require(`./../newFronts/image0.jpg`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 2,
-        img: require(`./../newFronts/image1.jpg`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 3,
-        img: require(`./../newFronts/image2.jpg`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 4,
-        img: require(`./../newFronts/image3.jpg`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 5,
-        img: require(`./../newFronts/image4.jpg`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 6,
-        img: require(`./../newFronts/image5.jpg`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 7,
-        img: require(`./../newFronts/image6.jpg`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 8,
-        img: require(`./../newFronts/image7.jpg`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 9,
-        img: require(`./../newFronts/image8.jpg`).default,
-        count: 0,
-        isFinish: false,
-      },
-    ]);
-
-    setGame([
-      {
-        id: 14,
-        gameId: 7,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image6.jpg`).default,
-      },
-      {
-        id: 2,
-        gameId: 1,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image0.jpg`).default,
-      },
-      {
-        id: 3,
-        gameId: 2,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image1.jpg`).default,
-      },
-      {
-        id: 4,
-        gameId: 2,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image1.jpg`).default,
-      },
-      {
-        id: 5,
-        gameId: 3,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image2.jpg`).default,
-      },
-      {
-        id: 6,
-        gameId: 3,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image2.jpg`).default,
-      },
-      {
-        id: 7,
-        gameId: 4,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image3.jpg`).default,
-      },
-      {
-        id: 8,
-        gameId: 4,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image3.jpg`).default,
-      },
-      {
-        id: 10,
-        gameId: 5,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image4.jpg`).default,
-      },
-      {
-        id: 18,
-        gameId: 9,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image8.jpg`).default,
-      },
-      {
-        id: 11,
-        gameId: 6,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image5.jpg`).default,
-      },
-      {
-        id: 9,
-        gameId: 5,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image4.jpg`).default,
-      },
-      {
-        id: 12,
-        gameId: 6,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image5.jpg`).default,
-      },
-      {
-        id: 13,
-        gameId: 7,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image6.jpg`).default,
-      },
-
-      {
-        id: 15,
-        gameId: 8,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image7.jpg`).default,
-      },
-      {
-        id: 16,
-        gameId: 8,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image7.jpg`).default,
-      },
-      {
-        id: 17,
-        gameId: 9,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image8.jpg`).default,
-      },
-
-      {
-        id: 1,
-        gameId: 1,
-        back: require(`./../newFronts/backCard.jpg`).default,
-        front: require(`./../newFronts/image0.jpg`).default,
-      },
-    ]);
-
-    const newGame = game.map((item, i) => {
-      item.back = require(`./../newFronts/backCard.jpg`).default;
-      return item;
-    });
-    setGame(newGame);
-    setFinishedCardNum(0);
-
-    changeCardPlace();
-  };
-
   const changeCardPlace = () => {
-    //1- genrate random numbers from 0 to 17
+    //to change cards place every time it restarts
+    //1- genrate random numbers from 0 to 5 for the easy level
     const numbers = [
       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
     ];
-    numbers.sort(() => Math.random() - 0.5);
+    numbers.sort(() => Math.random() - 0.5); //3 ,2,5,0,1,4
 
     //change cards place
     let newGame = [];
     for (let i = 0; i < numbers.length; i++) {
-      newGame.push(game[numbers[i]]); //numbers[0] = 4  numbers[1] = 17
+      newGame.push(game[numbers[i]]); //game []  //numbers[0] =3
     }
     //console.log(newGame);
     setGame(newGame);
@@ -376,9 +200,28 @@ export default function HardLevel() {
 
   useEffect(() => {
     changeCardPlace();
-  }, []);
+  }, []); //to do the change card place with every refresh of page
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTimer(timer + 1);
+      if (timer === 40 && finishedCardNum !== 9) {
+        navigate("/lose");
+      }
+    }, 1000);
+    return () => {
+      clearInterval(id);
+    };
+  }); //to do the change card place with every refresh of page
+
+  useEffect(() => {
+    if (finishedCardNum === 9) {
+      navigate("/win");
+    }
+  }, [finishedCardNum]);
 
   const check = async (id) => {
+    //to check match
     // id = i+1 ind
     let backCard = require(`./../newFronts/backCard.jpg`).default;
     let getIndexInOrginalCard = game[id - 1].gameId - 1;
@@ -388,7 +231,7 @@ export default function HardLevel() {
     if (check === false)
       if (game[id - 1].back === backCard) {
         //count number of cards to check if the same or not
-        //1-change count to each card
+        //1-change count of each card, when its matched count = 2 otherwise its not a match
         const newOrginalCard = orginalCard.map((item) => {
           if (game[id - 1].front === item.img) {
             item.count++;
@@ -402,6 +245,7 @@ export default function HardLevel() {
           return game[id - 1].front === item.img;
         });
 
+        //3-Change face image
         const newGame = game.map((item, i) => {
           if (i === id - 1) {
             item.back = item.front;
@@ -410,9 +254,9 @@ export default function HardLevel() {
         });
         setGame(newGame);
 
-        await delay(1000);
+        await delay(700);
 
-        //3- cheack if is equals or not
+        //3- check if is equals or not
         //begin
         if (countCard.count === 2) {
           //1- change image to finishCard
@@ -436,7 +280,7 @@ export default function HardLevel() {
         opnedCards[0]++;
 
         if (opnedCards[0] === 2) {
-          //  && countCard.count !== 2)
+          //  && countCard.count !== 2) <this is a deleted code
           const newGame = game.map((item) => {
             //change
             let getIndexInOrginalCard = item.gameId - 1;
@@ -453,20 +297,13 @@ export default function HardLevel() {
           });
 
           setOrginalCard(newOrginalCard2);
-        } else if (opnedCards[0] === 2) opnedCards[0] = 0;
+        } // else if (opnedCards[0] === 2) opnedCards[0] = 0;
         setOpnedCards(opnedCards);
         //finish check from filpNum
 
         //finish
       } else {
         orginalCard[getIndexInOrginalCard].count = 0;
-        // const newOrginalCard = orginalCard.map((item) => {
-        //   if (item.id === getIndexInOrginalCard) {
-        //     item.count = 0;
-        //   }
-        //   return item;
-        // });
-        // setGame(newOrginalCard);
 
         const newGame = game.map((item, i) => {
           if (i === id - 1) {
@@ -482,21 +319,11 @@ export default function HardLevel() {
     <div className="main">
       <div className="upperPage">
         <div className="btnsDiv">
-          <button className="backBtn">
+          <button className="backBtn" onClick={() => navigate("/start")}>
             <img
               className="backIcon"
               src="https://img.icons8.com/material-outlined/24/ffffff/circled-left--v1.png"
-            />
-          </button>
-          <button
-            className="restartBtn"
-            onClick={() => {
-              restartGame();
-            }}
-          >
-            <img
-              className="resIcon"
-              src="https://img.icons8.com/material-outlined/24/ffffff/restart--v1.png"
+              alt="card"
             />
           </button>
         </div>
@@ -506,7 +333,7 @@ export default function HardLevel() {
             <h1 className="countHead"> correct </h1>{" "}
           </div>
 
-          <h1 className="timer"> 00:30 </h1>
+          <h1 className="timer"> 00:{timer > 9 ? "" + timer : "0" + timer} </h1>
           {/*will make this into dynamic soon */}
         </div>
       </div>

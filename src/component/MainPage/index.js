@@ -21,7 +21,7 @@ export default function MainPage() {
           >
             Start Game
           </button>
-          <br/>
+          <br />
           <button
             className="mainBtns"
             onClick={() => {
