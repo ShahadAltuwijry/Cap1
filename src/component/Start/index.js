@@ -19,7 +19,7 @@ export default function Start() {
               navigate("/easyLevel");
             }}
           >
-            easy level
+            Easy level
           </button>
           <button
             className="mainBtns"
@@ -27,7 +27,7 @@ export default function Start() {
               navigate("/mediumLevel");
             }}
           >
-            medium level
+            Medium level
           </button>
           <button
             className="mainBtns"
@@ -35,7 +35,7 @@ export default function Start() {
               navigate("/hardLevel");
             }}
           >
-            high level
+            Hard level
           </button>
         </div>
       </div>
